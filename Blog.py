@@ -14,6 +14,7 @@
     b = Blog("http://www.blog.com", "Awesome blog", "John Snow")
     OR
     b = Blog("http://www.blog.com", "Awesome blog", "John Snow", list(1,2,3,4,5))
+    using set/geters to maintain OO concepts and best practices as decided by the group
 '''
  
 class Blog():    
@@ -25,188 +26,107 @@ class Blog():
     
     #CONSTRUCTOR - ARE WE HAPPY WITH THE IMPORTS????
     def __init__(self, url, name, owner, posts=list()):
-    '''
-        CONFIRM OK????
-        This constructor requires 3 parameters
-        url: The url of the blog
-        name: The name of the blog
-        owner: The name of the owner of the blog
-        There is also an optional 4th parameter
-        posts: This is a list of post objects which the Blog
-        will be constructed with.
-        If this is not provided the blog will be constructed
-        with an empty list of Posts
-    '''
+'''
+    CONFIRM OK????
+    This constructor requires 3 parameters
+    url: The url of the blog
+    name: The name of the blog
+    owner: The name of the owner of the blog
+    There is also an optional 4th parameter
+    posts: This is a list of post objects which the Blog
+    will be constructed with.
+    If this is not provided the blog will be constructed
+    with an empty list of Posts
+'''
         
     def setUrl(self, inUrl):
-        #do
+        url = inUrl
     def setName(self, inName):    
-        #do
+        name = inName
     def setOwner(self, inOwn):
-        #do
+        owne = inOwn
         
     def getUrl(self):
-        #do
+        return self.url
+    #duplicate method getName in TextMaster - same thing?
     def getName(self):    
-        #do
+        return self.name
     def getOwner(self):
-        #do  
+        return self.owner
     
-    #SHOULD THIS BE IN THIS CLASS????   
     def addPost(self, post):
-        #self.posts.append(post)
-    
-    def editPost(self, singlePost,setDraftFlag):
-        #something happens
-        
+        Post.__init__(name,date,author,body)
+    def editPost(self, singlePost, setDraftFlag):
+        #I assume this method is for editing ALL (un/published) posts?
     def publish(self, singlePost):
-        #something happens
-    
+        #selected draft post is published to the site
     def listPosts(self):
         #returns main post list excluding all drafts
-        #return mainPostList
-
-
+        return self.posts
 
 "------------END OF CLASS ONE -------------" 
  
  
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 '''
-    Created on 15/08/2013
+    Created on 27/08/2013
     Contains date, author, text
-    Aggregate from Post class
-    Multiplicity 0:*
+    Aggregate from Blog class
+    Multiplicity - NOT DISCUSSED
     @author: DaeTa
 '''
-class Post():
-    def __init__(self, name, date, author, body):
-        #do it
-    
+def TextMaster
+    def __init__():
+        #do
+        
     def setName(self, inName):
-        #do
+        name = inName
     def setDate(self, inDate):
-        #do
+        date = inDate
     def setAuthor(self, inAuth):
-        #do
-    def setBody(self, inBody):
-        #do
+        author = inAuth
+    def setText(self, inText):
+        text = inText
     
     def getName(self):
-        #do
+        return self.name
     def getDate(self):
-        #do
+        return self.date
     def getAuthor(self):
-        #do
-    def getBody(self):
-        #do
-
+        return self.author
+    def getText(self):
+        return self.text
 
 "------------END OF CLASS TWO -------------" 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  
 '''
     Created on 15/08/2013
-    Contains name, date, author, body
-    Aggregate from Blog class
-    Multiplicity is 0:*
+    Contains date, author, text
+    Inherits from TextMaster
+    Multiplicity NOT DECIDED
     @author: DaeTa
 '''
-class Comment():
+#note extra field "name" in this constructor
+class Post(TextMaster):
+    def __init__(self, name, date, author, text):
+        TextMaster.__init__()
+    
+"------------END OF CLASS THREE -------------" 
+
+
+
+'''
+    Created on 15/08/2013
+    Contains name, date, author, body
+    Inherits from TextMaster
+    Multiplicity is NOT DECIDED
+    @author: DaeTa
+'''
+class Comment(TextMaster):
         
     def __init__(self, date, author, text):
-        #do
-    
-    def getDate(self):
-        #do
-    def getAuthor(self):
-        #do
-    def getText(self):
-        #do
-        
-    def setDate(self, inDate):
-        #do
-    def setAuthor(self, inAuth):
-        #do
-    def setText(self, inText):
-        #do
-    
-    #EH WHAT DOES THIS DO????
-    #def Post():
-
-
-"------------END OF CLASS THREE -------------" 
+        TextMaster.__init__()
+   
+"------------END OF CLASS FOUR -------------" 
